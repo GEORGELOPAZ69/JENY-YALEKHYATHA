@@ -10,7 +10,13 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--white);font-family:"DM Sans",sans-serif}
+body {
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("https://scontent.fykz1-2.fna.fbcdn.net/v/t39.30808-6/472715681_1012056214283504_4719925743395325653_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1440&ctp=s1440x1440&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=K2UPV66WgEUQ7kNvwE3Q0W7&_nc_oc=Adqxzl7OsQvpYk3Pgih_aNrHkCbmOaapIEQ-nCbiMOsYMhF4cBzq2SOKY-Ri7iQ_MHA6Mz9SgdeGNTuVlCpcEV30&_nc_zt=23&_nc_ht=scontent.fykz1-2.fna&_nc_gid=zDM7zxO4Pv9BL9-tOOlyeQ&_nc_ss=7b2a8&oh=00_AQKYQ5xLwUYJbiHmXrZEpSgPwTIo9Civ64F0EXFEUfYa0w&oe=6AB52E7E") center / cover fixed no-repeat;
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+}{background:var(--black);color:var(--white);font-family:"DM Sans",sans-serif}
 .hero{min-height:100vh;background:radial-gradient(circle at 70% 35%,#241d0d 0,#0b0b0b 35%,#080808 70%);position:relative;overflow:hidden}
 .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(215,173,82,.18);border-radius:50%;right:-120px;top:20%;box-shadow:0 0 120px rgba(215,173,82,.06)}
 nav{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:2}
