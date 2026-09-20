@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="
+ content="width=device-width, initial-scale=1.0">
+  <title>My Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <div class="logo">MY<span>GALLERY</span></div>
+      <div class="nav-links">
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+    <div class="hero-content">
+    
+      <h1>JENY<br><span>YALEKYATHA.</span></h1>
+      <p class="intro">MESSAGE ME ON FACEBOOK & INSATAGRAM.</p>
+      <a class="gold-button" href="#gallery">Explore Gallery</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="gallery" class="gallery-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>My Gallery</h2>
+        </div>
+        <p class="count" id="photoCount">06 PHOTOS</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="people">People</button>
+        <button class="filter" data-filter="FLAGS">FLAGS</button>
+        <button class="filter" data-filter="COLOURS">COLOURS</button>
+      </div>
+
+      <div class="gallery" id="galleryGrid">
+        <article class="photo-card tall" data-category="FLAGS">
+          <img src="https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/706527027_1432155588940229_2869663157668883091_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1293&ctp=s1440x1293&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=QYLMNCIGX78Q7kNvwEDc7Og&_nc_oc=AdqmlbNK1OdaC5coqUz2f3exYgQTEcKsfbYerSjk6JzBRoGfl5kNQ5NoOKFKJyZx2gpX7wFmqkRCR7cQdbktr6Ao&_nc_zt=23&_nc_ht=scontent.fykz1-1.fna&_nc_gid=vWViAxIRM-UGVqhXLHGZsQ&_nc_ss=7b2a8&oh=00_AQKZgVBwQ1hc5u1ekPyr4rj6CXvWbCArkdU6GJazhgaalQ&oe=6AB53D8C" alt="Mountain landscape">
+          <div class="photo-info"><span>01</span><h3>Golden Hour</h3><p></p></div>
+        </article>
+        <article class="photo-card" data-category="COLOURS">
+          <img src="https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/542691477_1207868441368946_3770932221169304022_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x854&ctp=s1440x854&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=bVWzFmY6znQQ7kNvwFaPjyL&_nc_oc=AdqLNYKS8hMfIi9KVSX964S9DJ8BcdVXPteTAgriwywrvM_RTSdzw_MKwvxf1ftCq-ipuxnFP7qE8bY09DqnZJea&_nc_zt=23&_nc_ht=scontent.fykz1-1.fna&_nc_gid=eZimmwMMiZI2OZ5lq2Picw&_nc_ss=7b2a8&oh=00_AQI68yqFOkEwD9RzdU1h9uMB8fnN4tfIo4jGp7FGxAg9eA&oe=6AB51ECA">
+          <div class="photo-info"><span>02</span><h3>BLACK</h3><p></p></div>
+        </article>
+        <article class="photo-card" data-category="people">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=85" alt="Portrait">
+          <div class="photo-info"><span>03</span><h3>Portrait</h3><p>People</p></div>
+        </article>
+        <article class="photo-card wide" data-category="ALL%>
+        ">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" alt="Landscape">
+          <div class="photo-info"><span>04</span><h3>Somewhere Quiet</h3><p>Places</p></div>
+        </article>
+        <article class="photo-card" data-category="moments">
+          <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1000&q=85" alt="Forest">
+          <div class="photo-info"><span>05</span><h3>Into The Woods</h3><p>Moments</p></div>
+        </article>
+        <article class="photo-card" data-category="people">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=85" alt="Portrait">
+          <div class="photo-info"><span>06</span><h3>Unscripted</h3><p>People</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <p class="eyebrow">ABOUT THIS SPACE</p>
+      <h2>Personal. Simple. <span>Mine.</span></h2>
+      <p>This gallery is designed to feel like a private digital album — dark, elegant, and focused on the images.</p>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="close" aria-label="Close">&times;</button>
+    <img id="lightboxImage" src="" alt="">
+    <div id="lightboxTitle"></div>
+  </div>
+
+  <footer>© 2026 MY GALLERY</footer>
+  <script src="script.js"></script>
+</body>
+</html>

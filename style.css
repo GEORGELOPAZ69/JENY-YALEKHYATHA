@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root {
+  --black:#080808;
+  --panel:#101010;
+  --gold:#d7ad52;
+  --gold-light:#f2d68e;
+  --muted:#9b9b9b;
+  --white:#f5f2ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:"DM Sans",sans-serif}
+.hero{min-height:100vh;background:radial-gradient(circle at 70% 35%,#241d0d 0,#0b0b0b 35%,#080808 70%);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(215,173,82,.18);border-radius:50%;right:-120px;top:20%;box-shadow:0 0 120px rgba(215,173,82,.06)}
+nav{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:2}
+.logo{font-weight:700;letter-spacing:3px}.logo span{color:var(--gold);font-weight:400}
+.nav-links{display:flex;gap:32px}.nav-links a{color:#ddd;text-decoration:none;font-size:14px}.nav-links a:hover{color:var(--gold)}
+.hero-content{position:relative;z-index:2;padding:18vh 10% 10vh;max-width:850px}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:11px;font-weight:700;margin-bottom:18px}
+h1{font:600 clamp(60px,9vw,125px)/.92 "Playfair Display",serif;letter-spacing:-4px}
+h1 span,h2 span{color:var(--gold)}
+.intro{max-width:500px;color:var(--muted);line-height:1.8;margin:30px 0}
+.gold-button{display:inline-block;color:#0a0a0a;background:var(--gold);padding:15px 25px;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:1px;transition:.25s}.gold-button:hover{background:var(--gold-light);transform:translateY(-2px)}
+.gallery-section{padding:110px 7%}
+.section-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:40px}
+h2{font:500 clamp(42px,6vw,76px)/1 "Playfair Display",serif}
+.count{color:#666;font-size:12px;letter-spacing:2px}
+.filters{display:flex;gap:10px;margin-bottom:35px;flex-wrap:wrap}.filter{border:1px solid #292929;background:transparent;color:#999;padding:10px 18px;cursor:pointer}.filter.active,.filter:hover{border-color:var(--gold);color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:18px}
+.photo-card{position:relative;overflow:hidden;background:var(--panel);cursor:pointer}
+.photo-card.tall{grid-row:span 2}.photo-card.wide{grid-column:span 2}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.75);transition:transform .6s,filter .6s}
+.photo-card:hover img{transform:scale(1.06);filter:saturate(1)}
+.photo-info{position:absolute;inset:auto 0 0;padding:55px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.9));transform:translateY(12px);transition:.3s}
+.photo-card:hover .photo-info{transform:translateY(0)}
+.photo-info span{color:var(--gold);font-size:11px}.photo-info h3{font:500 25px "Playfair Display",serif;margin:5px 0}.photo-info p{color:#aaa;font-size:12px}
+.about{padding:120px 10%;border-top:1px solid #1d1d1d;max-width:1100px}.about h2{margin-bottom:25px}.about>p:last-child{color:var(--muted);max-width:600px;line-height:1.8}
+footer{text-align:center;padding:40px;color:#555;font-size:11px;letter-spacing:2px;border-top:1px solid #161616}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:20;padding:40px}.lightbox.show{display:flex}.lightbox img{max-width:90vw;max-height:82vh;object-fit:contain}.close{position:absolute;right:30px;top:20px;background:none;border:0;color:white;font-size:45px;cursor:pointer}.lightbox div:last-child{position:absolute;bottom:25px;color:var(--gold);font-family:"Playfair Display",serif;font-size:22px}
+.hidden{display:none!important}
+@media(max-width:800px){.gallery{grid-template-columns:1fr;grid-auto-rows:330px}.photo-card.tall,.photo-card.wide{grid-row:auto;grid-column:auto}.hero-content{padding-top:14vh}.nav-links{gap:15px}.gallery-section{padding:80px 5%}.section-heading{align-items:start;gap:20px;flex-direction:column}}
