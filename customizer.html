@@ -13,7 +13,26 @@
 <div class="group"><label>TAGLINE</label><textarea id="tagline">Welcome to my Yalekhyatha.</textarea></div>
 <div class="group"><label>PROFILE PHOTO</label><label class="upload">Upload Profile Photo<input id="profile" type="file" accept="image/*"></label></div>
 <div class="group"><label>THEME</label><div class="themes"><button class="theme active" data-c="gold">GOLD</button><button class="theme" data-c="blue">BLUE</button><button class="theme" data-c="red">RED</button></div></div>
-<div class="group"><label>SOCIAL LINKS</label><input id="instagram" placeholder="Instagram"><br><br><input id="facebook" placeholder="Facebook"><br><br><input id="tiktok" placeholder="TikTok"></div>
+if($(x[0]).value.trim()){
+    let value = $(x[0]).value.trim();
+
+    if(x[0] === 'instagram'){
+        value = value.replace(/^@/, '');
+        value = 'https://instagram.com/' + value;
+    }
+
+    if(x[0] === 'facebook'){
+        value = value.replace(/^@/, '');
+        value = 'https://facebook.com/' + value;
+    }
+
+    if(x[0] === 'tiktok'){
+        value = value.replace(/^@/, '');
+        value = 'https://tiktok.com/@' + value;
+    }
+
+    links.push('<a href="' + value + '" target="_blank" rel="noopener">' + x[1] + '</a>');
+}
 <div class="group"><label>GALLERY PHOTOS</label><label class="upload">Add Photos<input id="photos" type="file" accept="image/*" multiple></label><div class="thumbs" id="thumbs"></div></div>
 <div class="actions"><button class="primary" id="create">CREATE MY YALEKHYATHA</button><button class="secondary" id="reset">RESET</button></div></aside>
 <main class="workspace"><div class="top"><h1>Live Preview</h1><div class="mode"><button id="desk" class="active">Desktop</button> <button id="phone">Mobile</button></div></div><div class="shell" id="shell"><div class="preview" id="preview"><div class="nav" id="nav">JENY <span>YALEKHYATHA</span></div><section class="hero"><img id="avatar" class="avatar"><h2 id="title">JENY<br><span>YALEKHYATHA.</span></h2><p class="tag" id="tag">Welcome to my Yalekhyatha.</p><div class="socials" id="socials"></div></section><h3 class="galleryTitle">My <span>Gallery</span></h3><div class="gallery" id="gallery"><div class="empty">Your gallery photos will appear here.</div></div></div></div></main></div>
