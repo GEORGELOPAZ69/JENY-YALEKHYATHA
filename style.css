@@ -46,3 +46,195 @@ footer{text-align:center;padding:40px;color:#555;font-size:11px;letter-spacing:2
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:20;padding:40px}.lightbox.show{display:flex}.lightbox img{max-width:90vw;max-height:82vh;object-fit:contain}.close{position:absolute;right:30px;top:20px;background:none;border:0;color:white;font-size:45px;cursor:pointer}.lightbox div:last-child{position:absolute;bottom:25px;color:var(--gold);font-family:"Playfair Display",serif;font-size:22px}
 .hidden{display:none!important}
 @media(max-width:800px){.gallery{grid-template-columns:1fr;grid-auto-rows:330px}.photo-card.tall,.photo-card.wide{grid-row:auto;grid-column:auto}.hero-content{padding-top:14vh}.nav-links{gap:15px}.gallery-section{padding:80px 5%}.section-heading{align-items:start;gap:20px;flex-direction:column}}
+
+
+/* ========================================
+   LUXURY COLOUR DROPDOWN
+======================================== */
+
+.colour-filter {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+
+/* COLOURS button */
+.colour-button {
+  min-width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.colour-button span {
+  font-size: 11px;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when menu is open */
+.colour-filter:has(.colour-dropdown.show) .colour-button span {
+  transform: rotate(180deg);
+}
+
+/* Dropdown box */
+.colour-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+
+  width: 210px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22,22,22,.98),
+      rgba(7,7,7,.98)
+    );
+
+  border: 1px solid rgba(215,173,82,.55);
+  border-radius: 14px;
+
+  padding: 7px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.75),
+    0 0 30px rgba(215,173,82,.08),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    visibility .25s ease;
+}
+
+/* Small gold line at top */
+.colour-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(215,173,82,.5);
+}
+
+/* Open state */
+.colour-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Individual options */
+.colour-dropdown button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 13px 14px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #bdbdbd;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+
+  cursor: pointer;
+  text-align: left;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease,
+    padding-left .2s ease;
+}
+
+/* Gold dot */
+.colour-dropdown button::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #555;
+
+  margin-right: 12px;
+
+  transition:
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+/* Hover */
+.colour-dropdown button:hover {
+  background: rgba(215,173,82,.09);
+  color: var(--gold-light);
+  padding-left: 18px;
+}
+
+/* Gold dot on hover */
+.colour-dropdown button:hover::before {
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(215,173,82,.65);
+}
+
+/* Active/selected option */
+.colour-dropdown button.active {
+  background: rgba(215,173,82,.12);
+  color: var(--gold-light);
+}
+
+.colour-dropdown button.active::before {
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(215,173,82,.7);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .colour-dropdown {
+    width: 190px;
+    left: 0;
+    transform: translateY(-10px);
+  }
+
+  .colour-dropdown.show {
+    transform: translateY(0);
+  }
+
+  .colour-button {
+    min-width: 125px;
+  }
+
+  .colour-dropdown button {
+    padding: 14px 13px;
+    font-size: 10px;
+  }
+
+  .colour-dropdown button:hover {
+    padding-left: 17px;
+  }
+}
