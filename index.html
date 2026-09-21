@@ -2,111 +2,319 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="
- content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JENY YALEKYATHA</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="">
+
+  <header>
     <nav>
-      <div class="logo">JENY<span>YALEKYATHA</span></div>
+      <div class="logo">
+        JENY<span>YALEKYATHA</span>
+      </div>
+
       <div class="nav-links">
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
       </div>
     </nav>
+
     <div class="hero-content">
-    
-      <h1>JENY<br><span>YALEKYATHA.</span></h1>
-      <p class="intro">MESSAGE ME ON FACEBOOK & INSATAGRAM.</p>
+
+      <h1>
+        JENY<br>
+        <span>YALEKYATHA.</span>
+      </h1>
+
+      <p class="intro">
+        MESSAGE ME ON FACEBOOK & INSTAGRAM.
+      </p>
+
       <a class="gold-button" href="tel:+14168332676">
         Call Me
       </a>
-      <a class="gold-button" href="https://www.facebook.com/Jenyyalekhyatha" target="_blank">
-              Facebook
-      </a>
-      
-      <a class="gold-button"
-       href="https://www.instagram.com/jenyyalekhyatha/"
-       target="_blank"
-       rel="noopener noreferrer">
-       Instagram
-    </a>
 
-       <a class="gold-button"
-       href="https://www.tiktok.com/@by.jeny?_r=1&_t=ZS-99tn4GPhUKC"
-       target="_blank"
-       rel="noopener noreferrer">
-      TikTok
-    </a>
+      <a
+        class="gold-button"
+        href="https://www.facebook.com/Jenyyalekhyatha"
+        target="_blank"
+        rel="noopener noreferrer">
+        Facebook
+      </a>
+
+      <a
+        class="gold-button"
+        href="https://www.instagram.com/jenyyalekhyatha/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Instagram
+      </a>
+
+      <a
+        class="gold-button"
+        href="https://www.tiktok.com/@by.jeny?_r=1&_t=ZS-99tn4GPhUKC"
+        target="_blank"
+        rel="noopener noreferrer">
+        TikTok
+      </a>
 
     </div>
   </header>
 
+
   <main>
+
+    <!-- GALLERY -->
     <section id="gallery" class="gallery-section">
+
       <div class="section-heading">
+
         <div>
           <p class="eyebrow">SELECTED WORK</p>
           <h2>My Gallery</h2>
         </div>
-        <p class="count" id="photoCount">06 PHOTOS</p>
+
+        <p class="count" id="photoCount">
+          06 PHOTOS
+        </p>
+
       </div>
 
+
+      <!-- FILTERS -->
       <div class="filters">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="FLAGS">FLAGS</button>
-        <button class="filter" data-filter="COLOURS">COLOURS</button>
+
+        <button
+          class="filter active"
+          data-filter="all">
+          All
+        </button>
+
+        <button
+          class="filter"
+          data-filter="FLAGS">
+          FLAGS
+        </button>
+
+
+        <!-- COLOUR DROPDOWN -->
+        <div class="colour-filter">
+
+          <button
+            class="filter colour-button"
+            id="colourButton"
+            type="button">
+
+            COLOURS <span>▾</span>
+
+          </button>
+
+
+          <div
+            class="colour-dropdown"
+            id="colourDropdown">
+
+            <button
+              type="button"
+              data-colour="all">
+              ALL COLOURS
+            </button>
+
+            <button
+              type="button"
+              data-colour="BLACK">
+              BLACK
+            </button>
+
+            <button
+              type="button"
+              data-colour="DARK AQUA">
+              DARK AQUA
+            </button>
+
+            <button
+              type="button"
+              data-colour="RED">
+              RED
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="gallery" id="galleryGrid">
-        <article class="photo-card tall" data-category="FLAGS">
-          <img src="https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/706527027_1432155588940229_2869663157668883091_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1293&ctp=s1440x1293&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=QYLMNCIGX78Q7kNvwEDc7Og&_nc_oc=AdqmlbNK1OdaC5coqUz2f3exYgQTEcKsfbYerSjk6JzBRoGfl5kNQ5NoOKFKJyZx2gpX7wFmqkRCR7cQdbktr6Ao&_nc_zt=23&_nc_ht=scontent.fykz1-1.fna&_nc_gid=vWViAxIRM-UGVqhXLHGZsQ&_nc_ss=7b2a8&oh=00_AQKZgVBwQ1hc5u1ekPyr4rj6CXvWbCArkdU6GJazhgaalQ&oe=6AB53D8C" alt="Mountain landscape">
-          <div class="photo-info"><span>01</span><h3>ASSYRIAN FLAG</h3>
-        </article>
-        
-        <article class="photo-card" data-category="COLOURS">
-          <img src="https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/542691477_1207868441368946_3770932221169304022_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x854&ctp=s1440x854&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=bVWzFmY6znQQ7kNvwFaPjyL&_nc_oc=AdqLNYKS8hMfIi9KVSX964S9DJ8BcdVXPteTAgriwywrvM_RTSdzw_MKwvxf1ftCq-ipuxnFP7qE8bY09DqnZJea&_nc_zt=23&_nc_ht=scontent.fykz1-1.fna&_nc_gid=eZimmwMMiZI2OZ5lq2Picw&_nc_ss=7b2a8&oh=00_AQI68yqFOkEwD9RzdU1h9uMB8fnN4tfIo4jGp7FGxAg9eA&oe=6AB51ECA">
-          <div class="photo-info"><span>02</span><h3>BLACK</h3>
-        </article>
-        
-        <article class="photo-card" data-category="COLOURS">
-          <img src="https://scontent.fykz1-2.fna.fbcdn.net/v/t39.30808-6/487288269_1077665354389256_3565259057795457643_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1440&ctp=s1440x1440&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ZIULTNO7pp0Q7kNvwG93pGn&_nc_oc=AdpNuql9JZ4Kb3YRGKkXrVorFEAy-P4G-WPKEi_yFK4RRPxj0CyOl6z91498roso1Pa1NO9hX4t9If_Brl6Prhq3&_nc_zt=23&_nc_ht=scontent.fykz1-2.fna&_nc_gid=iCnEtqA6SQaTpkk1pM-2pQ&_nc_ss=7b2a8&oh=00_AQLQEVdbj5xkOVHXlYA1IyFvRcKzkPIHN8l8c3t_h73yqw&oe=6AB53174" alt="COLOUR">
-          <div class="photo-info"><span>03</span><h3>DARK AQUA</h3>
+
+      <!-- GALLERY GRID -->
+      <div
+        class="gallery"
+        id="galleryGrid">
+
+
+        <!-- 01 ASSYRIAN FLAG -->
+        <article
+          class="photo-card tall"
+          data-category="FLAGS">
+
+          <img
+            src="https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/706527027_1432155588940229_2869663157668883091_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1293&ctp=s1440x1293&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=QYLMNCIGX78Q7kNvwEDc7Og&_nc_oc=AdqmlbNK1OdaC5coqUz2f3exYgQTEcKsfbYerSjk6JzBRoGfl5kNQ5NoOKFKJyZx2gpX7wFmqkRCR7cQdbktr6Ao&_nc_zt=23&_nc_ht=scontent.fykz1-1.fna&_nc_gid=vWViAxIRM-UGVqhXLHGZsQ&_nc_ss=7b2a8&oh=00_AQKZgVBwQ1hc5u1ekPyr4rj6CXvWbCArkdU6GJazhgaalQ&oe=6AB53D8C"
+            alt="Assyrian Flag">
+
+          <div class="photo-info">
+            <span>01</span>
+            <h3>ASSYRIAN FLAG</h3>
+          </div>
+
         </article>
 
-        <article class="photo-card wide" data-category="COLOURS">
-          <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/480296885_3925961934348852_7746731115288328073_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1440&ctp=s1440x1440&_nc_cat=106&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=693w7nlhW_QQ7kNvwHOEcsV&_nc_oc=AdoqzJa38FuctlqDzeVeBQuBea_y1dqGSoY9WXwSei6fkclgeCOOUsGml4FBY5fC2AI&_nc_zt=23&_nc_ht=scontent-yyz1-1.xx&_nc_gid=zpqRmjxcmNLpO73YXmHDjQ&_nc_ss=7b289&oh=00_AQLUpsc8QNOopi1HoOq6v8_qI2VePtZtEUs9OwOsFGLhVw&oe=6AB70BF6">
-          <div class="photo-info"><span>04</span><h3>RED</h3>
+
+        <!-- 02 BLACK -->
+        <article
+          class="photo-card"
+          data-category="COLOURS"
+          data-colour="BLACK">
+
+          <img
+            src="https://scontent.fykz1-1.fna.fbcdn.net/v/t39.30808-6/542691477_1207868441368946_3770932221169304022_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x854&ctp=s1440x854&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=bVWzFmY6znQQ7kNvwFaPjyL&_nc_oc=AdqLNYKS8hMfIi9KVSX964S9DJ8BcdVXPteTAgriwywrvM_RTSdzw_MKwvxf1ftCq-ipuxnFP7qE8bY09DqnZJea&_nc_zt=23&_nc_ht=scontent.fykz1-1.fna&_nc_gid=eZimmwMMiZI2OZ5lq2Picw&_nc_ss=7b2a8&oh=00_AQI68yqFOkEwD9RzdU1h9uMB8fnN4tfIo4jGp7FGxAg9eA&oe=6AB51ECA"
+            alt="Black">
+
+          <div class="photo-info">
+            <span>02</span>
+            <h3>BLACK</h3>
+          </div>
+
         </article>
-        
-        <article class="photo-card" data-category="COLOURS">
-          <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/475249842_3910803379198041_2393776672269800700_n.jpg?stp=dst-jpg_tt6&cstp=mx1312x1080&ctp=s1312x1080&_nc_cat=103&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=FLRfrGMIxZwQ7kNvwEzCtsw&_nc_oc=AdoubQPUQlSGX4VPLMUJ1L9RqpXfMzNbgmPeWatROxAyo5szGT8A8Ejybxx-HUjA83A&_nc_zt=23&_nc_ht=scontent-yyz1-1.xx&_nc_gid=VqPvZfS2qD5oVCp_iKB3qQ&_nc_ss=7b289&oh=00_AQJbffIDiXUycziLT414hK1fG9vYWRY51N7bBDE0Uywl6Q&oe=6AB72064">
-          <div class="photo-info"><span>05</span><h3>Into The Woods</h3><p>Moments</p></div>
+
+
+        <!-- 03 DARK AQUA -->
+        <article
+          class="photo-card"
+          data-category="COLOURS"
+          data-colour="DARK AQUA">
+
+          <img
+            src="https://scontent.fykz1-2.fna.fbcdn.net/v/t39.30808-6/487288269_1077665354389256_3565259057795457643_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1440&ctp=s1440x1440&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ZIULTNO7pp0Q7kNvwG93pGn&_nc_oc=AdpNuql9JZ4Kb3YRGKkXrVorFEAy-P4G-WPKEi_yFK4RRPxj0CyOl6z91498roso1Pa1NO9hX4t9If_Brl6Prhq3&_nc_zt=23&_nc_ht=scontent.fykz1-2.fna&_nc_gid=iCnEtqA6SQaTpkk1pM-2pQ&_nc_ss=7b2a8&oh=00_AQLQEVdbj5xkOVHXlYA1IyFvRcKzkPIHN8l8c3t_h73yqw&oe=6AB53174"
+            alt="Dark Aqua">
+
+          <div class="photo-info">
+            <span>03</span>
+            <h3>DARK AQUA</h3>
+          </div>
+
         </article>
-        
-        <article class="photo-card" data-category="FLAGS">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=85" alt="Portrait">
-          <div class="photo-info"><span>06</span><h3>Unscripted</h3><p>People</p></div>
+
+
+        <!-- 04 RED -->
+        <article
+          class="photo-card wide"
+          data-category="COLOURS"
+          data-colour="RED">
+
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/480296885_3925961934348852_7746731115288328073_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1440&ctp=s1440x1440&_nc_cat=106&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=693w7nlhW_QQ7kNvwHOEcsV&_nc_oc=AdoqzJa38FuctlqDzeVeBQuBea_y1dqGSoY9WXwSei6fkclgeCOOUsGml4FBY5fC2AI&_nc_zt=23&_nc_ht=scontent-yyz1-1.xx&_nc_gid=zpqRmjxcmNLpO73YXmHDjQ&_nc_ss=7b289&oh=00_AQLUpsc8QNOopi1HoOq6v8_qI2VePtZtEUs9OwOsFGLhVw&oe=6AB70BF6"
+            alt="Red">
+
+          <div class="photo-info">
+            <span>04</span>
+            <h3>RED</h3>
+          </div>
+
         </article>
+
+
+        <!-- 05 INTO THE WOODS -->
+        <article
+          class="photo-card"
+          data-category="COLOURS"
+          data-colour="GREEN">
+
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/475249842_3910803379198041_2393776672269800700_n.jpg?stp=dst-jpg_tt6&cstp=mx1312x1080&ctp=s1312x1080&_nc_cat=103&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=FLRfrGMIxZwQ7kNvwEzCtsw&_nc_oc=AdoubQPUQlSGX4VPLMUJ1L9RqpXfMzNbgmPeWatROxAyo5szGT8A8Ejybxx-HUjA83A&_nc_zt=23&_nc_ht=scontent-yyz1-1.xx&_nc_gid=VqPvZfS2qD5oVCp_iKB3qQ&_nc_ss=7b289&oh=00_AQJbffIDiXUycziLT414hK1fG9vYWRY51N7bBDE0Uywl6Q&oe=6AB72064"
+            alt="Into The Woods">
+
+          <div class="photo-info">
+            <span>05</span>
+            <h3>Into The Woods</h3>
+            <p>Moments</p>
+          </div>
+
+        </article>
+
+
+        <!-- 06 UNSCRIPTED -->
+        <article
+          class="photo-card"
+          data-category="FLAGS">
+
+          <img
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=85"
+            alt="Portrait">
+
+          <div class="photo-info">
+            <span>06</span>
+            <h3>Unscripted</h3>
+            <p>People</p>
+          </div>
+
+        </article>
+
       </div>
+
     </section>
 
-    <section id="about" class="about">
-      <p class="eyebrow">ABOUT THIS SPACE</p>
-      <h2>Personal. Simple. <span>Mine.</span></h2>
-      <p>This gallery is designed to feel like a private digital album — dark, elegant, and focused on the images.</p>
+
+    <!-- ABOUT -->
+    <section
+      id="about"
+      class="about">
+
+      <p class="eyebrow">
+        ABOUT THIS SPACE
+      </p>
+
+      <h2>
+        Personal. Simple. <span>Mine.</span>
+      </h2>
+
+      <p>
+        This gallery is designed to feel like a private digital album —
+        dark, elegant, and focused on the images.
+      </p>
+
     </section>
+
   </main>
 
-  <div class="lightbox" id="lightbox">
-    <button class="close" aria-label="Close">&times;</button>
-    <img id="lightboxImage" src="" alt="">
+
+  <!-- LIGHTBOX -->
+  <div
+    class="lightbox"
+    id="lightbox">
+
+    <button
+      class="close"
+      aria-label="Close">
+      &times;
+    </button>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="">
+
     <div id="lightboxTitle"></div>
+
   </div>
 
-  <footer>© 2026 MY GALLERY</footer>
+
+  <footer>
+    © 2026 MY GALLERY
+  </footer>
+
+
   <script src="script.js"></script>
+
 </body>
 </html>
