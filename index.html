@@ -65,6 +65,28 @@
 
     </div>
   </header>
+  
+  <div class="group">
+  <label>REVIEWS</label>
+
+  <input id="reviewerName" placeholder="Customer name">
+
+  <select id="reviewRating">
+    <option value="5">★★★★★ 5 Stars</option>
+    <option value="4">★★★★☆ 4 Stars</option>
+    <option value="3">★★★☆☆ 3 Stars</option>
+    <option value="2">★★☆☆☆ 2 Stars</option>
+    <option value="1">★☆☆☆☆ 1 Star</option>
+  </select>
+
+  <input id="reviewDate" type="date">
+
+  <textarea id="reviewText" placeholder="Write the customer review..."></textarea>
+
+  <button class="secondary" id="addReview" type="button">
+    + ADD REVIEW
+  </button>
+</div>
 
 
   <main>
@@ -272,6 +294,31 @@
       </div>
 
     </section>
+
+<section class="reviews-section">
+
+  <div class="reviews-heading">
+    <h3>Reviews</h3>
+
+    <div class="rating-summary">
+      <div id="averageStars" class="rating-stars">
+        ★★★★★
+      </div>
+
+      <div id="averageRating">
+        5.0 / 5 · 0 reviews
+      </div>
+    </div>
+  </div>
+
+  <div id="reviewList">
+    <div class="empty-gallery">
+      Customer reviews will appear here.
+    </div>
+  </div>
+
+</section>
+
 
 
     <!-- ABOUT -->
