@@ -152,3 +152,74 @@ document.addEventListener("keydown", event => {
   }
 
 });
+
+function getStars(rating) {
+  return "★".repeat(rating) + "☆".repeat(5 - rating);
+}
+
+function renderReviews() {
+
+  const list = document.getElementById("reviewList");
+
+  list.innerHTML = "";
+
+  if (reviews.length === 0) {
+
+    list.innerHTML = `
+      <div class="empty-gallery">
+        Customer reviews will appear here.
+      </div>
+    `;
+
+    document.getElementById("averageStars").textContent = "★★★★★";
+    document.getElementById("averageRating").textContent =
+      "5.0 / 5 · 0 reviews";
+
+    return;
+  }
+
+  const total = reviews.reduce(
+    (sum, review) => sum + Number(review.rating),
+    0
+  );
+
+  const average = total / reviews.length;
+
+  document.getElementById("averageStars").textContent =
+    getStars(Math.round(average));
+
+  document.getElementById("averageRating").textContent =
+    average.toFixed(1) +
+    " / 5 · " +
+    reviews.length +
+    (reviews.length === 1 ? " review" : " reviews");
+
+  reviews.forEach(review => {
+
+    const card = document.createElement("div");
+
+    card.className = "review-card";
+
+    card.innerHTML = `
+      <div class="review-top">
+        <div class="reviewer">
+          ${escapeHtml(review.name)}
+        </div>
+
+        <div class="review-date">
+          ${review.date || ""}
+        </div>
+      </div>
+
+      <div class="review-stars">
+        ${getStars(Number(review.rating))}
+      </div>
+
+      <p>
+        ${escapeHtml(review.text)}
+      </p>
+    `;
+
+    list.appendChild(card);
+  });
+}
