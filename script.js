@@ -223,3 +223,38 @@ function renderReviews() {
     list.appendChild(card);
   });
 }
+document.getElementById("addReview").addEventListener("click", () => {
+
+  const name =
+    document.getElementById("reviewerName").value.trim();
+
+  const rating =
+    Number(document.getElementById("reviewRating").value);
+
+  const date =
+    document.getElementById("reviewDate").value;
+
+  const text =
+    document.getElementById("reviewText").value.trim();
+
+  if (!name || !text) {
+    alert("Please enter the customer name and review.");
+    return;
+  }
+
+  reviews.push({
+    name: name,
+    rating: rating,
+    date: date,
+    text: text
+  });
+
+  document.getElementById("reviewerName").value = "";
+  document.getElementById("reviewText").value = "";
+  document.getElementById("reviewDate").value = "";
+
+  renderReviews();
+});
+
+
+
