@@ -9,7 +9,7 @@
   --white:#f5f2ea;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:}
 body {
   background:
     linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
