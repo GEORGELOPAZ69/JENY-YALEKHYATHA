@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JENY YALEKYATHA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --black:#080808;
+      --panel:#101010;
+      --gold:#d7ad52;
+      --gold-light:#f2d68e;
+      --muted:#9b9b9b;
+      --white:#f5f2ea;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      background:
+        radial-gradient(circle at 50% 15%,rgba(215,173,82,.08),transparent 28%),
+        #080808;
+      color:var(--white);
+      font-family:"DM Sans",sans-serif;
+    }
+
+    nav{
+      height:90px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 7%;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      position:relative;
+      z-index:5;
+      background:rgba(8,8,8,.78);
+      backdrop-filter:blur(12px);
+    }
+
+    .logo{
+      font-weight:700;
+      letter-spacing:3px;
+    }
+
+    .logo span{
+      color:var(--gold);
+      font-weight:400;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:32px;
+    }
+
+    .nav-links a{
+      color:#ddd;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .nav-links a:hover{color:var(--gold)}
+
+    .hero{
+      min-height:calc(100vh - 90px);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero:before{
+      content:"Jeny Yalekhyatha";
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(215,173,82,.045);
+      font:600 clamp(70px,15vw,190px)/.8 "Playfair Display",serif;
+      transform:rotate(-16deg);
+      white-space:nowrap;
+      pointer-events:none;
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border:1px solid rgba(215,173,82,.16);
+      border-radius:50%;
+      right:-180px;
+      top:10%;
+      box-shadow:0 0 120px rgba(215,173,82,.06);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:15vh 10% 12vh;
+      max-width:1000px;
+    }
+
+    h1{
+      font:600 clamp(60px,9vw,125px)/.92 "Playfair Display",serif;
+      letter-spacing:-4px;
+    }
+
+    h1 span,h2 span{color:var(--gold)}
+
+    .intro{
+      max-width:600px;
+      color:var(--muted);
+      line-height:1.9;
+      margin:30px 0;
+      font-size:16px;
+    }
+
+    .button-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+
+    .gold-button{
+      display:inline-block;
+      color:#0a0a0a;
+      background:var(--gold);
+      padding:15px 25px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:1px;
+      transition:.25s;
+    }
+
+    .gold-button:hover{
+      background:var(--gold-light);
+      transform:translateY(-2px);
+    }
+
+    /* GALLERY */
+    .gallery-section{
+      padding:110px 7%;
+    }
+
+    .section-heading{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      margin-bottom:40px;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      letter-spacing:4px;
+      font-size:11px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    h2{
+      font:500 clamp(42px,6vw,76px)/1 "Playfair Display",serif;
+    }
+
+    .count{
+      color:#666;
+      font-size:12px;
+      letter-spacing:2px;
+    }
+
+    .filters{
+      display:flex;
+      gap:10px;
+      margin-bottom:35px;
+      flex-wrap:wrap;
+    }
+
+    .filter{
+      border:1px solid #292929;
+      background:transparent;
+      color:#999;
+      padding:10px 18px;
+      cursor:pointer;
+      font-family:"DM Sans",sans-serif;
+      transition:.25s;
+    }
+
+    .filter.active,.filter:hover{
+      border-color:var(--gold);
+      color:var(--gold);
+    }
+
+    .colour-filter{
+      position:relative;
+      display:inline-block;
+      z-index:10;
+    }
+
+    .colour-button{
+      min-width:135px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+    }
+
+    .colour-button span{
+      font-size:11px;
+      color:var(--gold);
+      transition:transform .3s ease;
+    }
+
+    .colour-filter:has(.colour-dropdown.show) .colour-button span{
+      transform:rotate(180deg);
+    }
+
+    .colour-dropdown{
+      position:absolute;
+      top:calc(100% + 12px);
+      left:50%;
+      transform:translateX(-50%) translateY(-10px);
+      width:210px;
+      background:linear-gradient(145deg,rgba(22,22,22,.98),rgba(7,7,7,.98));
+      border:1px solid rgba(215,173,82,.55);
+      border-radius:14px;
+      padding:7px;
+      box-shadow:
+        0 20px 50px rgba(0,0,0,.75),
+        0 0 30px rgba(215,173,82,.08),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:.25s ease;
+    }
+
+    .colour-dropdown.show{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+      transform:translateX(-50%) translateY(0);
+    }
+
+    .colour-dropdown button{
+      width:100%;
+      display:flex;
+      align-items:center;
+      padding:13px 14px;
+      border:0;
+      border-radius:9px;
+      background:transparent;
+      color:#bdbdbd;
+      font-family:"DM Sans",sans-serif;
+      font-size:11px;
+      font-weight:500;
+      letter-spacing:1.8px;
+      cursor:pointer;
+      text-align:left;
+      transition:.2s;
+    }
+
+    .colour-dropdown button:before{
+      content:"";
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#555;
+      margin-right:12px;
+    }
+
+    .colour-dropdown button:hover{
+      background:rgba(215,173,82,.09);
+      color:var(--gold-light);
+      padding-left:18px;
+    }
+
+    .colour-dropdown button:hover:before,
+    .colour-dropdown button.active:before{
+      background:var(--gold);
+      box-shadow:0 0 8px rgba(215,173,82,.7);
+    }
+
+    .colour-dropdown button.active{
+      background:rgba(215,173,82,.12);
+      color:var(--gold-light);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-auto-rows:280px;
+      gap:18px;
+    }
+
+    .photo-card{
+      position:relative;
+      overflow:hidden;
+      background:var(--panel);
+      cursor:pointer;
+    }
+
+    .photo-card.tall{grid-row:span 2}
+    .photo-card.wide{grid-column:span 2}
+
+    .photo-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(.75);
+      transition:transform .6s,filter .6s;
+    }
+
+    .photo-card:hover img{
+      transform:scale(1.06);
+      filter:saturate(1);
+    }
+
+    .photo-info{
+      position:absolute;
+      inset:auto 0 0;
+      padding:55px 22px 20px;
+      background:linear-gradient(transparent,rgba(0,0,0,.92));
+      transform:translateY(12px);
+      transition:.3s;
+    }
+
+    .photo-card:hover .photo-info{transform:translateY(0)}
+    .photo-info span{color:var(--gold);font-size:11px}
+    .photo-info h3{
+      font:500 25px "Playfair Display",serif;
+      margin:5px 0;
+    }
+    .photo-info p{color:#aaa;font-size:12px}
+
+    .hidden{display:none!important}
+
+    /* ABOUT */
+    .about{
+      padding:120px 10%;
+      border-top:1px solid #1d1d1d;
+      max-width:1100px;
+    }
+
+    .about h2{margin-bottom:25px}
+
+    .about > p:last-child{
+      color:var(--muted);
+      max-width:600px;
+      line-height:1.8;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#555;
+      font-size:11px;
+      letter-spacing:2px;
+      border-top:1px solid #161616;
+    }
+
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.94);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:20;
+      padding:40px;
+    }
+
+    .lightbox.show{display:flex}
+
+    .lightbox img{
+      max-width:90vw;
+      max-height:82vh;
+      object-fit:contain;
+    }
+
+    .close{
+      position:absolute;
+      right:30px;
+      top:20px;
+      background:none;
+      border:0;
+      color:white;
+      font-size:45px;
+      cursor:pointer;
+    }
+
+    #lightboxTitle{
+      position:absolute;
+      bottom:25px;
+      color:var(--gold);
+      font-family:"Playfair Display",serif;
+      font-size:22px;
+    }
+
+    @media(max-width:800px){
+      nav{padding:0 5%;height:75px}
+      .nav-links{gap:15px}
+      .hero{min-height:calc(100vh - 75px)}
+      .hero-content{padding:14vh 10% 10vh}
+      .gallery-section{padding:80px 5%}
+      .gallery{
+        grid-template-columns:1fr;
+        grid-auto-rows:330px;
+      }
+      .photo-card.tall,
+      .photo-card.wide{
+        grid-row:auto;
+        grid-column:auto;
+      }
+      .reviews-section{padding:75px 5%}
+      .reviews-head{
+        grid-template-columns:1fr;
+        gap:25px;
+      }
+      .rating-box{
+        border-left:0;
+        border-top:1px solid rgba(215,173,82,.22);
+        padding-left:0;
+        padding-top:25px;
+      }
+      .review-list{grid-template-columns:1fr}
+      .about{padding:90px 10%}
+    }
+
+    @media(max-width:600px){
+      .hero:before{font-size:75px}
+      .section-heading{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+      }
+      .reviews-heading{
+        align-items:flex-start;
+        flex-direction:column;
+        margin-bottom:30px;
+      }
+      .rating-summary{text-align:left}
+      .review-top{
+        flex-direction:column;
+        gap:10px;
+      }
+      .colour-dropdown{
+        width:190px;
+        left:0;
+        transform:translateY(-10px);
+      }
+      .colour-dropdown.show{transform:translateY(0)}
+      .button-row{gap:5px}
+      .gold-button{padding:14px 18px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero">
+  
+
+  <div class="hero-content">
+    <h1>JENY<br><span>YALEKYATHA.</span></h1>
+
+    <p class="intro">
+      MESSAGE ME ON FACEBOOK &amp; INSATAGRAM.<br>
+      GET YOUR YALEKHYATA AND KOPALA FOR YOUR BIG SPECIAL DAY.
+    </p>
+
+    <div class="button-row">
+      <a class="gold-button" href="tel:+14168332676">Call Me</a>
+      <a class="gold-button" href="https://www.facebook.com/Jenyyalekhyatha" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a class="gold-button" href="https://www.instagram.com/jenyyalekhyatha/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="gold-button" href="https://www.tiktok.com/@by.jeny?_r=1&_t=ZS-99tn4GPhUKC" target="_blank" rel="noopener noreferrer">TikTok</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="gallery" class="gallery-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>My Gallery</h2>
+      </div>
+      <p class="count" id="photoCount">29 PHOTOS</p>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="FLAGS">FLAGS</button>
+
+      <div class="colour-filter">
+        <button class="filter colour-button" id="colourButton" type="button">
+          COLOURS <span>▾</span>
+        </button>
+
+        <div class="colour-dropdown" id="colourDropdown">
+          <button type="button" data-colour="all">ALL COLOURS</button>
+          <button type="button" data-colour="BLACK">BLACK</button>
+          <button type="button" data-colour="TEAL">TEAL</button>
+          <button type="button" data-colour="BLUE">BLUE</button>
+          <button type="button" data-colour="RED">RED</button>
+          <button type="button" data-colour="PINK">PINK</button>
+          <button type="button" data-colour="WHITE">WHITE</button>
+          <button type="button" data-colour="GOLD">GOLD</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery" id="galleryGrid">
+      <article class="photo-card tall" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5792.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>01</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5793.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>02</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLACK">
+        <img src="images/IMG_5794.jpeg" alt="Black Collection">
+        <div class="photo-info"><span>03</span><h3>Black Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLACK">
+        <img src="images/IMG_5795.jpeg" alt="Black Collection">
+        <div class="photo-info"><span>04</span><h3>Black Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLACK">
+        <img src="images/IMG_5796.jpeg" alt="Black Collection">
+        <div class="photo-info"><span>05</span><h3>Black Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLACK">
+        <img src="images/IMG_5797.jpeg" alt="Black Collection">
+        <div class="photo-info"><span>06</span><h3>Black Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLACK">
+        <img src="images/IMG_5798.jpeg" alt="Black Collection">
+        <div class="photo-info"><span>07</span><h3>Black Collection</h3></div>
+      </article>
+
+      <article class="photo-card tall" data-category="COLOURS" data-colour="TEAL">
+        <img src="images/IMG_5799.jpeg" alt="Teal Collection">
+        <div class="photo-info"><span>08</span><h3>Teal Collection</h3></div>
+      </article>
+
+      <article class="photo-card wide" data-category="COLOURS" data-colour="TEAL">
+        <img src="images/IMG_5800.jpeg" alt="Teal Collection">
+        <div class="photo-info"><span>09</span><h3>Teal Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="PINK">
+        <img src="images/IMG_5801.jpeg" alt="Pink Collection">
+        <div class="photo-info"><span>10</span><h3>Pink Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLACK">
+        <img src="images/IMG_5802.jpeg" alt="Black Collection">
+        <div class="photo-info"><span>11</span><h3>Black Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="BLUE">
+        <img src="images/IMG_5803.jpeg" alt="Blue Collection">
+        <div class="photo-info"><span>12</span><h3>Blue Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="WHITE">
+        <img src="images/IMG_5804.jpeg" alt="White Collection">
+        <div class="photo-info"><span>13</span><h3>White Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="WHITE">
+        <img src="images/IMG_5805.jpeg" alt="White Collection">
+        <div class="photo-info"><span>14</span><h3>White Collection</h3></div>
+      </article>
+
+      <article class="photo-card tall" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5806.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>15</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5807.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>16</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5808.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>17</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card wide" data-category="COLOURS" data-colour="RED">
+        <img src="images/IMG_5809.jpeg" alt="Red Collection">
+        <div class="photo-info"><span>18</span><h3>Red Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="RED">
+        <img src="images/IMG_5810.jpeg" alt="Red Collection">
+        <div class="photo-info"><span>19</span><h3>Red Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="RED">
+        <img src="images/IMG_5811.jpeg" alt="Red Collection">
+        <div class="photo-info"><span>20</span><h3>Red Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5814.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>21</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card tall" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5815.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>22</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="FLAGS" data-colour="FLAGS">
+        <img src="images/IMG_5816.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>23</span><h3>Assyrian Collection</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="WHITE">
+        <img src="images/IMG_5817.jpeg" alt="WHITE">
+        <div class="photo-info"><span>24</span><h3>WHITE</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="WHITE">
+        <img src="images/IMG_5818.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>25</span><h3>WHITE</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="WHITE">
+        <img src="images/IMG_5819.jpeg" alt="Assyrian Collection">
+        <div class="photo-info"><span>26</span><h3>WHITE</h3></div>
+      </article>
+
+      <article class="photo-card wide" data-category="COLOURS" data-colour="WHITE">
+        <img src="images/IMG_5820.jpeg" alt="Accessories">
+        <div class="photo-info"><span>27</span><h3>Accessories</h3></div>
+      </article>
+
+      <article class="photo-card" data-category="COLOURS" data-colour="RED">
+        <img src="images/IMG_5821.jpeg" alt="Accessories">
+        <div class="photo-info"><span>28</span><h3>Accessories</h3></div>
+      </article>
+
+      <article class="photo-card tall" data-category="COLOURS" data-colour="PINK">
+        <img src="images/IMG_5822.jpeg" alt="Accessories">
+        <div class="photo-info"><span>29</span><h3>Accessories</h3></div>
+      </article>
+    </div>
+  </section>
+
+ 
+
+  <section id="about" class="about">
+    <p class="eyebrow">ABOUT THIS SPACE</p>
+    <h2>Personal. Simple. <span>Mine.</span></h2>
+    <p>
+      This gallery is designed to feel like a private digital album — dark, elegant,
+      and focused on the images.
+    </p>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Close">&times;</button>
+  <img id="lightboxImage" src="" alt="">
+  <div id="lightboxTitle"></div>
+</div>
+
+<footer>© 2026 MY GALLERY</footer>
+
+<script>
+  const filters = document.querySelectorAll(".filter[data-filter]");
+  const cards = document.querySelectorAll(".photo-card");
+  const count = document.getElementById("photoCount");
+
+  const colourButton = document.getElementById("colourButton");
+  const colourDropdown = document.getElementById("colourDropdown");
+  const colourOptions = colourDropdown.querySelectorAll("button");
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxTitle = document.getElementById("lightboxTitle");
+
+  function updateCount(){
+    const visible = [...cards].filter(
+      card => !card.classList.contains("hidden")
+    ).length;
+
+    count.textContent = String(visible).padStart(2,"0") + " PHOTOS";
+  }
+
+  filters.forEach(button => {
+    button.addEventListener("click", () => {
+      filters.forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.dataset.filter;
+
+      cards.forEach(card => {
+        card.classList.toggle(
+          "hidden",
+          filter !== "all" && card.dataset.category !== filter
+        );
+      });
+
+      updateCount();
+      colourDropdown.classList.remove("show");
+      colourButton.classList.remove("active");
+      colourButton.innerHTML = 'COLOURS <span>▾</span>';
+    });
+  });
+
+  colourButton.addEventListener("click", event => {
+    event.stopPropagation();
+    colourDropdown.classList.toggle("show");
+  });
+
+  colourOptions.forEach(option => {
+    option.addEventListener("click", event => {
+      event.stopPropagation();
+
+      colourOptions.forEach(o => o.classList.remove("active"));
+      option.classList.add("active");
+
+      const selectedColour = option.dataset.colour;
+
+      filters.forEach(b => b.classList.remove("active"));
+      colourButton.classList.add("active");
+
+      cards.forEach(card => {
+        if(selectedColour === "all"){
+          card.classList.toggle(
+            "hidden",
+            card.dataset.category !== "COLOURS"
+          );
+        }else{
+          card.classList.toggle(
+            "hidden",
+            card.dataset.colour !== selectedColour
+          );
+        }
+      });
+
+      colourButton.innerHTML =
+        selectedColour === "all"
+          ? 'COLOURS <span>▾</span>'
+          : selectedColour + ' <span>▾</span>';
+
+      updateCount();
+      colourDropdown.classList.remove("show");
+    });
+  });
+
+  document.addEventListener("click", event => {
+    if(!event.target.closest(".colour-filter")){
+      colourDropdown.classList.remove("show");
+    }
+  });
+
+
+  /* LIGHTBOX */
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const image = card.querySelector("img");
+
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+
+      const title = card.querySelector("h3");
+      lightboxTitle.textContent = title ? title.textContent : "";
+
+      lightbox.classList.add("show");
+    });
+  });
+
+  document.querySelector(".close").addEventListener("click", () => {
+    lightbox.classList.remove("show");
+  });
+
+  lightbox.addEventListener("click", event => {
+    if(event.target === lightbox){
+      lightbox.classList.remove("show");
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if(event.key === "Escape"){
+      lightbox.classList.remove("show");
+    }
+  });
+</script>
+
+</body>
+</html>
